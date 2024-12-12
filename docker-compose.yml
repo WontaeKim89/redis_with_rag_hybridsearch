@@ -1,0 +1,11 @@
+services:
+  redis:
+    container_name: redis_rag
+    build:
+      context: .
+      dockerfile: redis_rag.dockerfile
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis_rag.conf:/usr/local/etc/redis/redis_rag.conf
+    command: ["redis-server", "/usr/local/etc/redis/redis_rag.conf"]
